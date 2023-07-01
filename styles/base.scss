@@ -1,0 +1,78 @@
+:root {
+  --color-white: #fff;
+  --color-primary: #273066;
+  --color-success: #009a49;
+  --color-light-success: rgba(0, 154, 73, 0.1);
+  --color-pending: #e62965;
+  --color-light-pending: rgba(230, 41, 101, 0.1);
+  --color-grey: #757577;
+  --color-light-grey: #707070;
+  --color-lighter-grey: #949494;
+  --color-dark: #282828;
+  --box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05);
+  --border: 1px solid #eceef7;
+}
+
+.light-theme {
+  --color-text-white: var(--color-white);
+  --color-background-white: var(--color-white);
+  --color-text-dark: var(--color-dark);
+
+  --color-text-grey: var(--color-grey);
+  --color-text-light-grey: var(--color-light-grey);
+  --color-text-lighter-grey: var(--color-lighter-grey);
+
+  --color-text-primary: var(--color-primary);
+  --color-background-primary: var(--color-primary);
+
+  --color-text-success: var(--color-success);
+  --color-background-success: var(--color-success);
+
+  --color-text-success: var(--color-success);
+  --color-background-light-success: var(--color-light-success);
+
+  --color-text-pending: var(--color-pending);
+  --color-background-light-pending: var(--color-light-pending);
+}
+
+.dark-theme {
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+
+  --color-pink: var(--color-text-dark);
+  --color-green: var(--color-text-dark);
+  --color-blue: var(--color-text-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5% !important; // 1rem = 10px; browser default font-size is 16px but what want is 10px relative to the browser default font-size. 10px/16px
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100% !important;
+}
+body {
+  background-color: #fff;
+  font-family: gorditas;
+
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  top: 0 !important;
+}
+#root {
+  position: relative;
+  height: 100%;
+}
