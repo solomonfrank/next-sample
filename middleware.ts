@@ -13,9 +13,9 @@ export function middleware(request: NextRequest) {
 
   console.log("subdomain =>", subdomain);
 
-  if (!access_token || !tenantId) {
-    return NextResponse.redirect(new URL("/Login", request.url));
-  }
+  // if (!access_token || !tenantId) {
+  //   return NextResponse.redirect(new URL("/Login", request.url));
+  // }
   return NextResponse.next();
 }
 
