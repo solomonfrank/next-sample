@@ -1,25 +1,27 @@
 import "antd/dist/reset.css";
 import "@/styles/globals.css";
 import "@/styles/index.scss";
-import type { ReactElement, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
-import type { AppProps } from "next/app";
+import type { AppProps as NextAppProps } from "next/app";
 import type { NextPage } from "next";
 
+import { appWithTranslation } from "next-i18next";
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
+  getLayout?: (page: ReactNode) => ReactNode;
 };
 
-type AppPropsWithLayout = AppProps & {
+export type AppPropsWithLayout = NextAppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function MyApp({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppPropsWithLayout) {
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? ((page) => page);
 
-  return getLayout(<Component {...pageProps} />);
-}
+  const getLayout = Component.getLayout ?? ((page: React.ReactNode) => page);
+
+  return <>{getLayout(<Component {...pageProps} />)}</>;
+};
+
+export default appWithTranslation<AppPropsWithLayout>(MyApp);
